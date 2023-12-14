@@ -38,18 +38,17 @@ export const CartPage: React.FC<{
         <Fragment>
           {cartIsEmpty ? (
             <div className={classes.empty}>
-              Your cart is empty.
+              Giỏ hàng Của bạn đang trống.
               {typeof productsPage === 'object' && productsPage?.slug && (
                 <Fragment>
                   {' '}
-                  <Link href={`/${productsPage.slug}`}>Click here</Link>
-                  {` to shop.`}
+                  <Link href={`/${productsPage.slug}`}>Mua Sắm Ngay</Link>
                 </Fragment>
               )}
               {!user && (
                 <Fragment>
                   {' '}
-                  <Link href={`/login?redirect=%2Fcart`}>Log in</Link>
+                  <Link href={`/login?redirect=%2Fcart`}>Đăng Nhập</Link>
                   {` to view a saved cart.`}
                 </Fragment>
               )}
@@ -59,13 +58,13 @@ export const CartPage: React.FC<{
               <div>
                 {/* CART LIST HEADER */}
                 <div className={classes.header}>
-                  <p>Products</p>
+                  <p>Sản phẩm</p>
                   <div className={classes.headerItemDetails}>
                     <p></p>
                     <p></p>
-                    <p>Quantity</p>
+                    <p>Số lượng</p>
                   </div>
-                  <p className={classes.headersubtotal}>Subtotal</p>
+                  <p className={classes.headersubtotal}>Tổng</p>
                 </div>
                 {/* CART ITEM LIST */}
                 <ul className={classes.itemsList}>
@@ -98,23 +97,23 @@ export const CartPage: React.FC<{
 
               <div className={classes.summary}>
                 <div className={classes.row}>
-                  <h6 className={classes.cartTotal}>Summary</h6>
+                  <h6 className={classes.cartTotal}>Hóa đơn sản phẩm</h6>
                 </div>
 
                 <div className={classes.row}>
-                  <p className={classes.cartTotal}>Delivery Charge</p>
-                  <p className={classes.cartTotal}>$0</p>
+                  <p className={classes.cartTotal}>Phí vận chuyển</p>
+                  <p className={classes.cartTotal}>0 VND</p>
                 </div>
 
                 <div className={classes.row}>
-                  <p className={classes.cartTotal}>Grand Total</p>
+                  <p className={classes.cartTotal}>Tổng phải thanh toán</p>
                   <p className={classes.cartTotal}>{cartTotal.formatted}</p>
                 </div>
 
                 <Button
                   className={classes.checkoutButton}
                   href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}
-                  label={user ? 'Checkout' : 'Login to checkout'}
+                  label={user ? 'Thanh toán' : 'Đăng nhập để thanh toán'}
                   appearance="primary"
                 />
               </div>

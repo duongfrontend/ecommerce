@@ -29,8 +29,8 @@ export default async function Logout() {
 }
 
 export const metadata: Metadata = {
-  title: 'Logout',
-  description: 'You have been logged out.',
+  title: 'Đăng xuất',
+  description: 'Bạn đã đăng xuất tài khoản.',
   openGraph: mergeOpenGraph({
     title: 'Logout',
     url: '/logout',

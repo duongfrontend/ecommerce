@@ -48,7 +48,7 @@ const CreateAccountForm: React.FC = () => {
       })
 
       if (!response.ok) {
-        const message = response.statusText || 'There was an error creating the account.'
+        const message = response.statusText || 'Đã xảy ra lỗi khi tạo tài khoản.'
         setError(message)
         return
       }
@@ -67,7 +67,7 @@ const CreateAccountForm: React.FC = () => {
         window.location.href = '/'
       } catch (_) {
         clearTimeout(timer)
-        setError('There was an error with the credentials provided. Please try again.')
+        setError('Đã xảy ra lỗi với thông tin xác thực được cung cấp. Vui lòng thử lại.')
       }
     },
     [login, router, searchParams],
@@ -76,14 +76,14 @@ const CreateAccountForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
       <p>
-        {`This is where new customers can signup and create a new account. To manage all users, `}
-        <Link href="/admin/collections/users">login to the admin dashboard</Link>
+        {`Đây là nơi khách hàng mới có thể đăng ký và tạo tài khoản mới. Để quản lý tất cả người dùng, `}
+        <Link href="/admin/collections/users">Đăng Nhập Vào Trang Quản Trị</Link>
         {'.'}
       </p>
       <Message error={error} className={classes.message} />
       <Input
         name="email"
-        label="Email Address"
+        label="Email của bạn"
         required
         register={register}
         error={errors.email}
@@ -91,7 +91,7 @@ const CreateAccountForm: React.FC = () => {
       />
       <Input
         name="name"
-        label="Full name"
+        label="Họ và tên"
         required
         register={register}
         error={errors.name}
@@ -100,7 +100,7 @@ const CreateAccountForm: React.FC = () => {
       <Input
         name="password"
         type="password"
-        label="Password"
+        label="Mật khẩu"
         required
         register={register}
         error={errors.password}
@@ -108,7 +108,7 @@ const CreateAccountForm: React.FC = () => {
       <Input
         name="passwordConfirm"
         type="password"
-        label="Confirm Password"
+        label="Nhập lại mật khẩu"
         required
         register={register}
         validate={value => value === password.current || 'The passwords do not match'}
@@ -116,14 +116,14 @@ const CreateAccountForm: React.FC = () => {
       />
       <Button
         type="submit"
-        label={loading ? 'Processing' : 'Sign up'}
+        label={loading ? 'Đang Xử Lý' : 'Đăng Ký'}
         disabled={loading}
         appearance="primary"
         className={classes.submit}
       />
       <div>
-        {'Already have an account? '}
-        <Link href={`/login${allParams}`}>Login</Link>
+        {'Bạn đã có tài khoản rồi? '}
+        <Link href={`/login${allParams}`}>Đăng Nhập Ngay</Link>
       </div>
     </form>
   )

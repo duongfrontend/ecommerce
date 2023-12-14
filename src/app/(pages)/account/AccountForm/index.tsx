@@ -53,7 +53,7 @@ const AccountForm: React.FC = () => {
         if (response.ok) {
           const json = await response.json()
           setUser(json.doc)
-          setSuccess('Successfully updated account.')
+          setSuccess('Đã cập nhật tài khoản thành công.')
           setError('')
           setChangePassword(false)
           reset({
@@ -63,7 +63,7 @@ const AccountForm: React.FC = () => {
             passwordConfirm: '',
           })
         } else {
-          setError('There was a problem updating your account.')
+          setError('Đã xảy ra sự cố khi cập nhật tài khoản của bạn.')
         }
       }
     },
@@ -74,7 +74,7 @@ const AccountForm: React.FC = () => {
     if (user === null) {
       router.push(
         `/login?error=${encodeURIComponent(
-          'You must be logged in to view this page.',
+          'Bạn phải đăng nhập để xem trang này.',
         )}&redirect=${encodeURIComponent('/account')}`,
       )
     }
@@ -97,24 +97,24 @@ const AccountForm: React.FC = () => {
         <Fragment>
           <Input
             name="email"
-            label="Email Address"
+            label="Email của bạn"
             required
             register={register}
             error={errors.email}
             type="email"
           />
-          <Input name="name" label="Name" register={register} error={errors.name} />
+          <Input name="name" label="Họ và tên" register={register} error={errors.name} />
 
           <p>
-            {'Change your account details below, or '}
+            {'Thay đổi chi tiết tài khoản của bạn bên dưới, hoặc '}
             <button
               type="button"
               className={classes.changePassword}
               onClick={() => setChangePassword(!changePassword)}
             >
-              click here
+              Bấm Vào Đây
             </button>
-            {' to change your password.'}
+            {' để thay đổi mật khẩu của bạn.'}
           </p>
         </Fragment>
       ) : (

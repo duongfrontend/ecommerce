@@ -17,10 +17,7 @@ export const priceFromJSON = (priceJSON: string, quantity: number = 1, raw?: boo
 
       if (raw) return priceValue.toString()
 
-      price = (priceValue / 100).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD', // TODO: use `parsed.currency`
-      })
+      price = (priceValue / 100).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })
 
       if (priceType === 'recurring') {
         price += `/${
@@ -40,7 +37,7 @@ export const priceFromJSON = (priceJSON: string, quantity: number = 1, raw?: boo
 export const Price: React.FC<{
   product: Product
   quantity?: number
-  button?: 'addToCart' | 'removeFromCart' | false
+  button?: 'Thêm giỏ hàng' | 'Xóa giỏ hàng' | false
 }> = props => {
   const { product, product: { priceJSON } = {}, button = 'addToCart', quantity } = props
 

@@ -39,7 +39,7 @@ const LoginForm: React.FC = () => {
         else router.push('/')
         window.location.href = '/'
       } catch (_) {
-        setError('There was an error with the credentials provided. Please try again.')
+        setError('Đã xảy ra lỗi với thông tin xác thực được cung cấp. Vui lòng thử lại.')
       }
     },
     [login, router],
@@ -50,7 +50,7 @@ const LoginForm: React.FC = () => {
       <Message error={error} className={classes.message} />
       <Input
         name="email"
-        label="Email Address"
+        label="Email của bạn"
         required
         register={register}
         error={errors.email}
@@ -59,7 +59,7 @@ const LoginForm: React.FC = () => {
       <Input
         name="password"
         type="password"
-        label="Password"
+        label="Mật khẩu của bạn"
         required
         register={register}
         error={errors.password}
@@ -67,14 +67,14 @@ const LoginForm: React.FC = () => {
       <Button
         type="submit"
         appearance="primary"
-        label={isLoading ? 'Processing' : 'Login'}
+        label={isLoading ? 'Đang Xử Lý' : 'Đăng Nhập'}
         disabled={isLoading}
         className={classes.submit}
       />
       <div className={classes.links}>
-        <Link href={`/create-account${allParams}`}>Create an account</Link>
+        <Link href={`/create-account${allParams}`}>Tạo Tài Khoản Mới</Link>
         <br />
-        <Link href={`/recover-password${allParams}`}>Recover your password</Link>
+        <Link href={`/recover-password${allParams}`}>Quên Mật Khẩu</Link>
       </div>
     </form>
   )

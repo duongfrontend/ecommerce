@@ -31,10 +31,10 @@ export default async function RecoverPassword() {
 
           <Link href="/login" className={classes.backLink}>
             <Image src="/assets/icons/arrow-left.svg" alt="left arrow" width={24} height={24} />
-            <p>Back</p>
+            <p>Quay lại</p>
           </Link>
           <div className={classes.formTitle}>
-            <h3>Forgot Password</h3>
+            <h3>Lấy Lại Mật Khẩu</h3>
           </div>
           <RecoverPasswordForm />
         </div>
@@ -44,8 +44,8 @@ export default async function RecoverPassword() {
 }
 
 export const metadata: Metadata = {
-  title: 'Recover Password',
-  description: 'Enter your email address to recover your password.',
+  title: 'Quên mật khẩu',
+  description: 'Trang lấy lại mật khẩu của bạn.',
   openGraph: mergeOpenGraph({
     title: 'Recover Password',
     url: '/recover-password',

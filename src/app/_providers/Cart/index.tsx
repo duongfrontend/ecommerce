@@ -175,7 +175,7 @@ export const CartProvider = props => {
 
         syncCartToPayload()
       } catch (e) {
-        console.error('Error while syncing cart to Payload.') // eslint-disable-line no-console
+        console.error('Lỗi khi đồng bộ hóa giỏ hàng .') // eslint-disable-line no-console
       }
     } else {
       localStorage.setItem('cart', JSON.stringify(flattenedCart))
@@ -239,10 +239,7 @@ export const CartProvider = props => {
       }, 0) || 0
 
     setTotal({
-      formatted: (newTotal / 100).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }),
+      formatted: (newTotal / 100).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }),
       raw: newTotal,
     })
   }, [cart, hasInitialized])

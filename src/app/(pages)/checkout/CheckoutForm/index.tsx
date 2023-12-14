@@ -65,7 +65,8 @@ export const CheckoutForm: React.FC<{}> = () => {
               }),
             })
 
-            if (!orderReq.ok) throw new Error(orderReq.statusText || 'Something went wrong.')
+            if (!orderReq.ok)
+              throw new Error(orderReq.statusText || 'Đã xảy ra lỗi. Vui lòng thử lại.')
 
             const {
               error: errorFromRes,
@@ -87,22 +88,26 @@ export const CheckoutForm: React.FC<{}> = () => {
           }
         }
       } catch (err) {
-        const msg = err instanceof Error ? err.message : 'Something went wrong.'
-        setError(`Error while submitting payment: ${msg}`)
+        const msg = err instanceof Error ? err.message : 'Đã xảy ra lỗi.'
+        setError(`Lỗi khi gửi thanh toán: ${msg}`)
         setIsLoading(false)
       }
     },
     [stripe, elements, router, cart, cartTotal],
   )
+  // const handleSubmit = () => {
+  //   alert('oke')
+  // }
 
   return (
     <form onSubmit={handleSubmit} className={classes.form}>
       {error && <Message error={error} />}
       <PaymentElement />
+
       <div className={classes.actions}>
-        <Button label="Back to cart" href="/cart" appearance="secondary" />
+        <Button label="Quay lại giỏ hàng" href="/cart" appearance="secondary" />
         <Button
-          label={isLoading ? 'Loading...' : 'Checkout'}
+          label={isLoading ? 'Loading...' : 'Thanh Toán'}
           type="submit"
           appearance="primary"
           disabled={!stripe || isLoading}

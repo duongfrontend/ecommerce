@@ -40,9 +40,7 @@ export const RecoverPasswordForm: React.FC = () => {
       setSuccess(true)
       setError('')
     } else {
-      setError(
-        'There was a problem while attempting to send you a password reset email. Please try again.',
-      )
+      setError('Đã xảy ra sự cố khi cố gắng gửi cho bạn email đặt lại mật khẩu. Vui lòng thử lại.')
     }
   }, [])
 
@@ -50,13 +48,13 @@ export const RecoverPasswordForm: React.FC = () => {
     <Fragment>
       {!success && (
         <React.Fragment>
-          <p>Enter your registered email address. We'll send you a code to reset your password.</p>
+          <p>Nhập địa chỉ email đăng kí. Chúng tôi sẽ gửi liên kết về email của bạn</p>
 
           <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
             <Message error={error} className={classes.message} />
             <Input
               name="email"
-              label="Email Address"
+              label="Email của bạn"
               required
               register={register}
               error={errors.email}
@@ -65,7 +63,7 @@ export const RecoverPasswordForm: React.FC = () => {
             <Button
               type="submit"
               appearance="primary"
-              label="Recover Password"
+              label="Tiếp Tục"
               className={classes.submit}
             />
           </form>
@@ -73,8 +71,8 @@ export const RecoverPasswordForm: React.FC = () => {
       )}
       {success && (
         <React.Fragment>
-          <h1>Request submitted</h1>
-          <p>Check your email for a link that will allow you to securely reset your password.</p>
+          <h1>Đã Gửi Yêu Cầu</h1>
+          <p>Vui lòng kiểm tra email của bạn. Chúng tôi vừa gửi liên kết về email của bạn.</p>
         </React.Fragment>
       )}
     </Fragment>

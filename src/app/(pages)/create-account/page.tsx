@@ -37,11 +37,11 @@ export default async function CreateAccount() {
           <RenderParams className={classes.params} />
 
           <div className={classes.formTitle}>
-            <h3>Create Account</h3>
+            <h3>Tạo Tài Khoản Mới</h3>
             <Image src="/assets/icons/hand.png" alt="hand" width={30} height={30} />
           </div>
 
-          <p>Please enter details</p>
+          <p>Vui lòng nhập chi tiết</p>
 
           <CreateAccountForm />
         </div>
@@ -51,8 +51,8 @@ export default async function CreateAccount() {
 }
 
 export const metadata: Metadata = {
-  title: 'Account',
-  description: 'Create an account or log in to your existing account.',
+  title: 'Đăng ký',
+  description: 'Trang đăng ký tài khoản của bạn.',
   openGraph: mergeOpenGraph({
     title: 'Account',
     url: '/account',

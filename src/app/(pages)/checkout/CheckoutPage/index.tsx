@@ -66,7 +66,7 @@ export const CheckoutPage: React.FC<{
             setClientSecret(res.client_secret)
           }
         } catch (e) {
-          setError('Something went wrong.')
+          setError('Đã xảy ra lỗi. Vui lòng thử lại.')
         }
       }
 
@@ -80,13 +80,13 @@ export const CheckoutPage: React.FC<{
     <Fragment>
       {cartIsEmpty && (
         <div>
-          {'Your '}
-          <Link href="/cart">cart</Link>
-          {' is empty.'}
+          {'Giỏ '}
+          <Link href="/cart">hàng</Link>
+          {' của bạn đang trống.'}
           {typeof productsPage === 'object' && productsPage?.slug && (
             <Fragment>
               {' '}
-              <Link href={`/${productsPage.slug}`}>Continue shopping?</Link>
+              <Link href={`/${productsPage.slug}`}>Tiếp tục mua sắm?</Link>
             </Fragment>
           )}
         </div>
@@ -94,12 +94,12 @@ export const CheckoutPage: React.FC<{
       {!cartIsEmpty && (
         <div className={classes.items}>
           <div className={classes.header}>
-            <p>Products</p>
+            <p>Sản phẩm</p>
             <div className={classes.headerItemDetails}>
               <p></p>
-              <p className={classes.quantity}>Quantity</p>
+              <p className={classes.quantity}>Số lượng</p>
             </div>
-            <p className={classes.subtotal}>Subtotal</p>
+            <p className={classes.subtotal}>Tổng</p>
           </div>
 
           <ul>
@@ -130,7 +130,7 @@ export const CheckoutPage: React.FC<{
               return null
             })}
             <div className={classes.orderTotal}>
-              <p>Order Total</p>
+              <p>Tổng phải thanh toán</p>
               <p>{cartTotal.formatted}</p>
             </div>
           </ul>
@@ -144,12 +144,12 @@ export const CheckoutPage: React.FC<{
       {!clientSecret && error && (
         <div className={classes.error}>
           <p>{`Error: ${error}`}</p>
-          <Button label="Back to cart" href="/cart" appearance="secondary" />
+          <Button label="Quay lại giỏ hàng" href="/cart" appearance="secondary" />
         </div>
       )}
       {clientSecret && (
         <Fragment>
-          <h3 className={classes.payment}>Payment Details</h3>
+          <h3 className={classes.payment}>Thông Tin Thanh Toán</h3>
           {error && <p>{`Error: ${error}`}</p>}
           <Elements
             stripe={stripe}

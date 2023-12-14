@@ -16,7 +16,7 @@ export const ProductHero: React.FC<{
   return (
     <Gutter className={classes.productHero}>
       <div className={classes.mediaWrapper}>
-        {!metaImage && <div className={classes.placeholder}>No image</div>}
+        {!metaImage && <div className={classes.placeholder}>Không có hình ảnh</div>}
         {metaImage && typeof metaImage !== 'string' && (
           <Media imgClassName={classes.image} resource={metaImage} fill />
         )}
@@ -41,13 +41,13 @@ export const ProductHero: React.FC<{
               )
             })}
           </div>
-          <p className={classes.stock}> In stock</p>
+          <p className={classes.stock}> Còn hàng</p>
         </div>
 
         <Price product={product} button={false} />
 
         <div className={classes.description}>
-          <h6>Description</h6>
+          <h6>Mô tả sản phẩm</h6>
           <p>{description}</p>
         </div>
 

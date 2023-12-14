@@ -59,10 +59,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(data?.loginUser?.user)
         setStatus('loggedIn')
       } else {
-        throw new Error('Invalid login')
+        throw new Error('Đăng nhập không hợp lệ')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      throw new Error('Đã xảy ra lỗi khi cố gắng đăng nhập.')
     }
   }, [])
 
@@ -88,9 +88,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return user
       }
 
-      throw new Error('Invalid login')
+      throw new Error('Đăng nhập không hợp lệ')
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      throw new Error('Đã xảy ra lỗi khi cố gắng đăng nhập.')
     }
   }, [])
 
@@ -108,10 +108,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(null)
         setStatus('loggedOut')
       } else {
-        throw new Error('An error occurred while attempting to logout.')
+        throw new Error('Đã xảy ra lỗi khi cố gắng đăng xuất.')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to logout.')
+      throw new Error('Đã xảy ra lỗi khi cố gắng đăng xuất.')
     }
   }, [])
 
@@ -131,11 +131,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setUser(meUser || null)
           setStatus(meUser ? 'loggedIn' : undefined)
         } else {
-          throw new Error('An error occurred while fetching your account.')
+          throw new Error('Đã xảy ra lỗi khi tìm nạp tài khoản của bạn.')
         }
       } catch (e) {
         setUser(null)
-        throw new Error('An error occurred while fetching your account.')
+        throw new Error('Đã xảy ra lỗi khi tìm nạp tài khoản của bạn.')
       }
     }
 
@@ -163,7 +163,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw new Error('Invalid login')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      throw new Error('Đã xảy ra lỗi khi cố gắng đăng nhập.')
     }
   }, [])
 
@@ -191,7 +191,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw new Error('Invalid login')
       }
     } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+      throw new Error('Đã xảy ra lỗi khi cố gắng đăng nhập.')
     }
   }, [])
 
